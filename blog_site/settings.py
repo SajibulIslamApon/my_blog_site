@@ -58,11 +58,19 @@ TEMPLATES = [
 WSGI_APPLICATION = 'blog_site.wsgi.application'
 
 # Database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://blog_site_3a6f_user:fLPoiCDiZy1fvzg4n4nLlNjo4MwOlyNz@dpg-d2qr427diees73dfesg0-a/blog_site_3a6f',
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 # Password validation
